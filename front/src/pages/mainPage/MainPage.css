@@ -1,0 +1,10 @@
+.main-page{
+    display: flex;
+}
+.map{
+    width: 70%;
+}
+.alerts-grid{
+    width: 30%;
+    background-color: palevioletred;
+}

@@ -19,7 +19,7 @@ async function createAlert(alert) {
 }
 
 function updateAlert(id, updatAlert) {
-    return alerts.updateOne({_id: new ObjectId(id)}, {$set: updatAlert})
+    return alerts.findOneAndUpdate({_id: new ObjectId(id)}, {$set: updatAlert}, {returnDocument: "after"})
 
 }
 

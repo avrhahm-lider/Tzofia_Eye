@@ -3,22 +3,22 @@ import alertsDal from "../DAL/alerts.dal.js"
 import alertsService from "../services/alerts.service.js"
 
 async function getAlerts(req, res) {
-    const result = await alertsDal.getalerts()
+    const result = await alertsService.getAlerts()
     res.json({seccess: true, data: result})
 }
 async function getAlertById(req, res) {
         const {id} = req.params
     const result = await alertsService.getAlertById(id)
-    res.json({seccess: true, data: result})
+    res.json({seccess: true, data: {...result, id: result._id}})
 }
 async function creatAlerts(req, res) {
     const result = await alertsService.creatAlerts(req.body)
-    res.status(201).json({seccess: true, data: result})
+    res.status(201).json({seccess: true, data: {...result, id: result._id}})
 }
 async function updatAlert(req, res) {
     const {id} = req.params
     const result = await alertsService.updatAlert(id, req.body)
-    res.status(200).json({seccess: true, data: result})
+    res.status(200).json({seccess: true, data: {...result, id: result._id}})
 }
 async function deleteAlert(req, res) {
         const {id} = req.params

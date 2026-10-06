@@ -2,11 +2,12 @@ import { Router } from "express";
 import alertsCtrls from "../ctrls/alerts.ctrls.js";
 import { validate } from "../utils/schemaValidate.js";
 import { alertSchema } from "../schemases/alertSchema.js";
+import { authMiddleware } from "../utils/authMiddleware.js";
 
 
 const router = Router()
 
-
+router.use(authMiddleware)
 router.get("", alertsCtrls.getAlerts)
 router.get("/:id", alertsCtrls.getAlertById)
 router.post("",validate(alertSchema), alertsCtrls.creatAlerts)

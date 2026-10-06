@@ -13,7 +13,7 @@ export async function createAlert(alert: alertType){
 }
 
 export async function updateAlert(id: string, alert: updateAlertType){
-    return  api(`${BASE_URL}/:${id}`,{
+    return  api(`${BASE_URL}/${id}`,{
         method: 'PUT',
         body: JSON.stringify(alert)
 
@@ -22,14 +22,14 @@ export async function updateAlert(id: string, alert: updateAlertType){
 }
 
 export async function deleteAlert(id: string){
-    return  api(`${BASE_URL}/:${id}`,{
+    return  api(`${BASE_URL}/${id}`,{
         method: 'DELETE',
     })
 
 }
 
 export async function getAlertById(id: string){
-    return  api(`${BASE_URL}/:${id}`, {method: 'GET'})
+    return  api(`${BASE_URL}/${id}`, {method: 'GET'})
 
 }
 

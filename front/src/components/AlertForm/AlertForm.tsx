@@ -1,9 +1,10 @@
 import React, { type FormHTMLAttributes } from 'react'
 import './AlertForm.css'
 interface AlertFormType{
-onSubmitHandler: (e :React.SubmitEvent<HTMLFormElement>)=>{}
+onSubmitHandler: (e :React.SubmitEvent<HTMLFormElement>)=>void
+onBack : () => void
 }
-export default function AlertForm({onSubmitHandler}: AlertFormType) {
+export default function AlertForm({onSubmitHandler, onBack}: AlertFormType) {
 
     // function mom(e :  React.SubmitEvent<HTMLFormElement>){
     //     e.preventDefault()
@@ -15,10 +16,10 @@ export default function AlertForm({onSubmitHandler}: AlertFormType) {
     <div className='alert-form'>
         <form onSubmit={(e)=>{onSubmitHandler(e)}}>
         <label htmlFor="displayName">displayName <br />
-            <input id="displayName" type="text" />
+            <input id="displayName" type="text" minLength={3}/>
         </label>
         <label htmlFor="description">description <br />
-            <input id="description"type="text" />
+            <input id="description"type="text" minLength={5}/>
         
         </label>
         <div className='selecters'>
@@ -30,8 +31,15 @@ export default function AlertForm({onSubmitHandler}: AlertFormType) {
             <option value="Critical">Critical</option>
         </select>
         </label>
-        <label htmlFor="arona">arona
+        <label htmlFor="priority">arona 
         <select name="arona" id='arona'>
+            <option value="South">South</option>
+            <option value="Center">Center</option>
+            <option value="North">North</option>
+        </select>
+        </label>
+        <label htmlFor="status">status
+        <select name="status" id='status'>
             <option value="Active">Active</option>
             <option value="Handled">Handled</option>
         </select>
@@ -48,6 +56,7 @@ export default function AlertForm({onSubmitHandler}: AlertFormType) {
         </div>
         <button type='submit'>submit</button>
         </form>
+        <button onClick={onBack}>back</button>
     </div>
   )
 }

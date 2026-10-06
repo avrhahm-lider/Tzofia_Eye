@@ -1,14 +1,15 @@
 import React from 'react'
 import AlertForm from '../AlertForm/AlertForm'
+import './AlertGrid.css'
 interface AlertGridTtype{
     className?: string
-    onSubmitHandler: (e :React.SubmitEvent<HTMLFormElement>)=>void
+    element: React.JSX.Element
+
 }
-export default function AlertGrid({className, onSubmitHandler} : AlertGridTtype) {
+export default function AlertGrid({className, element} : AlertGridTtype) {
   return (
-    <div className={className}>
-        <AlertForm onSubmitHandler={onSubmitHandler}/>
-        <button onClick={()=>{}}>+</button>
+    <div className={ `alert-grid ${className}`}>
+        {element}
     </div>
   )
 }

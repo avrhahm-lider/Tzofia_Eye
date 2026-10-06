@@ -1,3 +1,4 @@
+
 export interface alertType {
     id?: string | null | undefined
     displayName: string
@@ -20,3 +21,15 @@ export interface updateAlertType {
 }
 
 
+export interface registerType{
+        userName: string,
+    password: string,
+    email: string,
+    role: 'arena_user' | 'general_user' | 'admin',
+    assignedArena: 'North' | 'South' | 'Center' | 'All'
+}
+
+export interface loginType{
+    userName: string,
+    password: string,
+}
